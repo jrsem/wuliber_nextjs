@@ -37,8 +37,8 @@ import * as TbIcons from "react-icons/tb";
 const allIcons = { ...FaIcons, ...MdIcons, ...AiIcons,...GiIcons, ...Io5Icons, ...TbIcons  };
 
 
-function DynamicIcon({ name, className }) {
-  const Icon = allIcons[name];
+function DynamicIcon({ name, className }: { name: string; className?: string }) {
+  const Icon = allIcons[name as keyof typeof allIcons];
 
   if (!Icon) return null; // icon not found
 
