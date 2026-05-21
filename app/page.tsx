@@ -8,15 +8,29 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import heroCar from "@/public/assets/hero-car.jpg";
 import { GetHomePageData } from "../hook/queries";
 import { STRAPI_URL } from "@/lib/utils";
+
+
+
 export default function Home() {
-  const { data, isLoading, error } = GetHomePageData();
+     const { data, isLoading: pageLoading, isError: pageError, error: pageErrorObj } = GetHomePageData();
+ 
+   console.log(data?.data);
+
+   if (pageLoading) {
+    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+  }
+
+  if (pageError) {
+    return <div className="flex items-center justify-center min-h-screen text-red-500">Error: {pageErrorObj.message}</div>;
+  }
 
    const hero = data?.data?.hero?.[0];
+   const heroImageUrl = hero?.image?.url || hero?.image?.formats?.large?.url || hero?.image?.formats?.medium?.url;
 
    console.log(data);
   return (
     <main className="min-h-screen">
-      <HeroSection image={hero?.image?.url ? `${STRAPI_URL}${hero.image.url}` : heroCar} 
+      <HeroSection image={heroImageUrl ? `${STRAPI_URL}${heroImageUrl}` : heroCar} 
         title_1={hero?.title_1 ?? ""} 
         title_2={hero?.title_2 ?? ""} 
         title_3={hero?.title_3 ?? ""} 
@@ -27,8 +41,8 @@ export default function Home() {
 	     <BookingSection contactSection={data?.data?.ContactSection?.[0]}/> 
       
       {/* <div className="container mx-auto p-8">
-        {isLoading && <p>Loading homepage data...</p>}
-        {error && <p className="text-red-500">Error loading data.</p>}
+        {pageLoading && <p>Loading homepage data...</p>}
+        {pageError && <p className="text-red-500">Error loading data.</p>}
         {data && (
           <pre className="bg-muted p-4 rounded-md overflow-auto text-sm mt-4">
             {JSON.stringify(data, null, 2)}

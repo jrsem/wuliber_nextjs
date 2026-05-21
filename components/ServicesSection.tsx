@@ -85,7 +85,7 @@ const ServicesSection = ({ offersSection }: { offersSection?: OffersSectionData 
           transition={{ duration: 0.7 }}
           className="mb-16 text-center"
         >
-          <p className="mb-3 text-xs font-body uppercase tracking-[0.3em] text-primary">{offersSection.title_1}</p>
+          <p className="mb-3 text-xs font-body uppercase tracking-[0.3em] text-[#cda661]">{offersSection.title_1}</p>
           <h2 className="text-3xl font-display font-medium text-foreground md:text-5xl">
            {offersSection.title_2}
           </h2>
@@ -100,13 +100,13 @@ const ServicesSection = ({ offersSection }: { offersSection?: OffersSectionData 
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="group border border-border bg-card p-8 transition-all hover:border-primary/40"
+              className="group border border-border bg-card p-8 transition-all hover:border-gold-gradient rounded-none"
             >
               <DynamicIcon
                 name={service.icon}  // e.g. "FaCar" from Strapi
-                className="mb-6 h-7 w-7 text-primary transition-transform group-hover:scale-110"
+                className="mb-6 h-7 w-7 text-[#cda661] transition-transform group-hover:scale-110"
               />
-              {/* <service.icon className="mb-6 h-7 w-7 text-primary transition-transform group-hover:scale-110" /> */}
+              {/* <service.icon className="mb-6 h-7 w-7 text-[#cda661] transition-transform group-hover:scale-110" /> */}
               <h3 className="mb-3 font-display text-lg font-medium text-foreground">{service.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>
             </motion.div>
