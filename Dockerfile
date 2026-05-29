@@ -1,25 +1,33 @@
-# Stage 1: Build the React app
-FROM node:20-alpine AS build
+FROM node:22.16.0-alpine AS base
 
+###################################################
+# setup docker image to install all node packages #
+###################################################
+FROM base AS dependencies
 WORKDIR /app
-
-# Install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
-# Copy source and build
+########################################
+# setup docker image for next.js build #
+########################################
+FROM base AS build
+WORKDIR /app
+COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-# Stage 2: Serve with Nginx
-FROM nginx:stable-alpine
-
-# Copy our custom config to the Nginx config directory
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy the build output from Stage 1 to Nginx's public folder
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copy a custom nginx config if you have one, or use default
-# EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+############################################################
+# setup docker image to hold build, static and run the app #
+############################################################
+FROM base AS runner
+WORKDIR /app
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    HOSTNAME="0.0.0.0"
+COPY --from=build /app/public ./public
+RUN mkdir .next
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
+CMD ["node", "server.js"]

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Providers from "./providers";
+import { Toaster } from "@/components/ui/sonner";
 
 const playfair_display = Playfair_Display({
   variable: "--font-geist-sans",
@@ -33,6 +34,15 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <Toaster 
+        toastOptions={{
+            style: {
+              background: "#FFF",
+              border: "1px solid #d1a347",
+              color: "#111317",
+            },
+          }}
+        />
       </body>
     </html>
   );

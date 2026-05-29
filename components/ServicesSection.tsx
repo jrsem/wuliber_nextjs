@@ -31,10 +31,12 @@ import * as AiIcons from "react-icons/ai";
 import * as GiIcons from "react-icons/gi";
 import * as Io5Icons from "react-icons/io5";
 import * as TbIcons from "react-icons/tb";
+import * as LuIcons from "react-icons/lu";
 
 
 
-const allIcons = { ...FaIcons, ...MdIcons, ...AiIcons,...GiIcons, ...Io5Icons, ...TbIcons  };
+
+const allIcons = { ...FaIcons, ...MdIcons, ...AiIcons,...GiIcons, ...Io5Icons, ...TbIcons, ...LuIcons };
 
 
 function DynamicIcon({ name, className }: { name: string; className?: string }) {

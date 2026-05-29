@@ -36,7 +36,7 @@ type testionialSectionData = {
 };
 
 const TestimonialsSection = ({ testimonialSection }: { testimonialSection?: testionialSectionData }) => {
-  console.log(testimonialSection);
+    if (!testimonialSection) return null;
   return (
     <section id="testimonials" className="bg-section-fade py-28 px-6">
       <div className="mx-auto max-w-6xl">

@@ -3,6 +3,7 @@ import fleetInterior from "@/public/assets/fleet-interior.jpg";
 import fleetSedan from "@/public/assets/fleet-sedan.jpg";
 import fleetSuv from "@/public/assets/fleet-suv.jpg";
 import { STRAPI_URL } from "@/lib/utils";
+import Image from "next/image";
 
 // const vehicles = [
 //   {
@@ -65,6 +66,7 @@ function toAbsoluteUrl(url: string): string {
 }
 
 const FleetSection = ({ fleesSection }: { fleesSection?: fleesSectionData }) => {
+  if (!fleesSection) return null;
   return (
     <section id="fleet" className="py-28 px-6">
       <div className="mx-auto max-w-6xl">
@@ -97,7 +99,7 @@ const FleetSection = ({ fleesSection }: { fleesSection?: fleesSectionData }) => 
                   const mediaUrl = resolveStrapiMediaUrl(v.image);
                   const src = mediaUrl ? toAbsoluteUrl(mediaUrl) : fallbackImages[i % fallbackImages.length];
                   return (
-                <img
+                <Image
                   src={src as string}
                   alt={v.title}
                   loading="lazy"

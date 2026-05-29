@@ -1,0 +1,8 @@
+
+POST http://localhost:3000/api/send-email HTTP/1.1
+content-type: application/json
+
+{
+  "name": "John Doe",
+  "email": "juniorsemerzier@gmail.com"
+}

@@ -5,12 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const STRAPI_URL = "http://localhost:1337";
-//localhost:1337";
+// export const STRAPI_URL = "http://localhost:1337";
+export const STRAPI_URL = "https://admin.wuliber.com";
 
-// export const CMS_URL =
-//   import.meta.env.VITE_CMS_URL?.toString?.() || "http://localhost:3001";
 
-// export const CONTACT_API_URL =
-//   import.meta.env.VITE_CONTACT_API_URL?.toString?.() ||
-//   `${CMS_URL}/api/contact`;
+export const CONTACT_API_URL ="http://localhost:3000/api/send-email"
