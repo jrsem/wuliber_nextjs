@@ -9,4 +9,6 @@ export function cn(...inputs: ClassValue[]) {
 export const STRAPI_URL = "https://admin.wuliber.com";
 
 
-export const CONTACT_API_URL ="http://localhost:3000/api/send-email"
+// export const CONTACT_API_URL ="http://localhost:3000/api/send-email"
+export const CONTACT_API_URL ="https://admin.wuliber.com/api/send-email"
+
