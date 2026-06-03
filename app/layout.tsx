@@ -23,16 +23,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <>
+    {process.env.NEXT_PUBLIC_ENABLE_UNAMI === "true" && (
+      <Script
+        defer
+        src="http://76.13.111.34:3000/script.js"
+        data-website-id="81f9b6fa-b178-4fa7-ae53-9ee71bf697f5"
+      />
+    )}
+   
     <html
       lang="en"
       className={` ${playfair_display.variable} h-full antialiased`}
     >
-      <Script 
-          src="https://wuliber-umami-3102e8-76-13-111-34.sslip.io/script.js"
-          data-website-id="81f9b6fa-b178-4fa7-ae53-9ee71bf697f5"
-          strategy="afterInteractive"
-          />
-
       <body className="min-h-full flex flex-col">
         <Providers>
           <Navbar />
@@ -50,5 +53,6 @@ export default function RootLayout({
         />
       </body>
     </html>
+     </>
   );
 }
