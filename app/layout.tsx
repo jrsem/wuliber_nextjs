@@ -5,13 +5,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Providers from "./providers";
 import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script";
 
 const playfair_display = Playfair_Display({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,6 +27,11 @@ export default function RootLayout({
       lang="en"
       className={` ${playfair_display.variable} h-full antialiased`}
     >
+      <Script 
+          async 
+          src="http://wuliber-umami-3102e8-76-13-111-34.sslip.io/script.js" 
+          data-website-id="c518c6bb-b4bc-45c7-ada9-4b902d70fede"/>
+          
       <body className="min-h-full flex flex-col">
         <Providers>
           <Navbar />
