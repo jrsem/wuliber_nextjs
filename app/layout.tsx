@@ -28,8 +28,8 @@ export default function RootLayout({
       className={` ${playfair_display.variable} h-full antialiased`}
     >
       <Script 
-          async 
-          src="http://wuliber-umami-3102e8-76-13-111-34.sslip.io/script.js" 
+          defer
+          src="https://wuliber-umami-3102e8-76-13-111-34.sslip.io/script.js"
           data-website-id="81f9b6fa-b178-4fa7-ae53-9ee71bf697f5"
           />
 
