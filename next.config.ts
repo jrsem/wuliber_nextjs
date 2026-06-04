@@ -7,11 +7,11 @@ const nextConfig: NextConfig = {
   return [
         {
           source: "/umami.js",
-          destination: "http://wuliber-umami-3102e8-76-13-111-34.sslip.io/script.js",
+          destination: "https://juniorsemerzier.dev/script.js",
         },
         {
           source: "/api/send",
-          destination: "http://wuliber-umami-3102e8-76-13-111-34.sslip.io/api/send",
+          destination: "https://juniorsemerzier.dev/script.js/api/send",
         },
       ];
     },

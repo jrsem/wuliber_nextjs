@@ -27,7 +27,7 @@ export default function RootLayout({
     {process.env.NEXT_PUBLIC_ENABLE_UNAMI === "true" && (
       <Script
         defer
-        src="http://wuliber-umami-3102e8-76-13-111-34.sslip.io/script.js" 
+        src="https://juniorsemerzier.dev/script.js" 
         data-website-id="81f9b6fa-b178-4fa7-ae53-9ee71bf697f5"
       />
     )}
