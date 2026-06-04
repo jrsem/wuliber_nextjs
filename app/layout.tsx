@@ -24,14 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <>
-    {process.env.NEXT_PUBLIC_ENABLE_UNAMI === "true" && (
       <Script
         defer
         src="https://juniorsemerzier.dev/script.js" 
         data-website-id="81f9b6fa-b178-4fa7-ae53-9ee71bf697f5"
       />
-    )}
-   
+ 
     <html
       lang="en"
       className={` ${playfair_display.variable} h-full antialiased`}
